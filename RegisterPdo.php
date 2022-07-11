@@ -25,41 +25,65 @@ require 'regcontroller.php';
           <form class="user" action="regcontroller.php" method="post">
             <div class="form-group">
               <input type="text" class="form-control form-control-user" name="name" id="exampleFirstName" placeholder="Name">
-              <code><?php if (isset($_SESSION['flash']['name'])) {
+              <code>
+                <?php 
+                if (isset($_SESSION['flash']['name'])) {
                 print_r($_SESSION['flash']['name']);
-                } ?></code>
+                } 
+                ?>
+              </code>
             </div>
             <div class="form-group">
               <input type="text" class="form-control form-control-user" name="phone" id="exampleLastName" placeholder="phone">
-              <code><?php if (isset($_SESSION['flash']['phone'])) {
+              <code>
+                <?php
+                if (isset($_SESSION['flash']['phone'])) {
                 print_r($_SESSION['flash']['phone']);
-                } ?></code>
+                } 
+                ?>
+              </code>
             </div>
             <div class="form-group">
               <input type="email" class="form-control form-control-user" name="mail" id="exampleInputEmail" placeholder="Email ">
-              <code><?php if (isset($_SESSION['flash']['mail'])) {
+              <code>
+                <?php 
+                if (isset($_SESSION['flash']['mail'])) {
                 print_r($_SESSION['flash']['mail']);
-                } ?></code>
+                } 
+                ?>
+              </code>
             </div>
             <div class="form-group">
               <input type="text" class="form-control form-control-user" name="address" id="exampleInputEmail" placeholder="Address">
-              <code><?php if (isset($_SESSION['flash']['address'])) {
+              <code>
+                <?php 
+                if (isset($_SESSION['flash']['address'])) {
                 print_r($_SESSION['flash']['address']);
-                } ?></code>
+                } 
+                ?>
+              </code>
             </div>
             <div class="form-group row">
               <div class="col-sm-6 mb-3 mb-sm-0">
                 <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password">
-                <code><?php if (isset($_SESSION['flash']['password'])) {
+                <code>
+                  <?php
+                  if (isset($_SESSION['flash']['password'])) {
                   print_r($_SESSION['flash']['password']);
-                  } ?></code>
+                  } 
+                  ?>
+                </code>
               </div>
               <div class="col-sm-6">
-                <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" name="RepeatPassword" placeholder="Repeat Password">
-                <code><?php if (isset($_SESSION['flash']['RepeatPassword'])) {
-                  print_r($_SESSION['flash']['RepeatPassword']);
+                <input type="password" class="form-control form-control-user" id="exampleconfirmpassword" name="Confirm_password" placeholder="onfirm password">
+                <code>
+                  <?php 
+                  if (isset($_SESSION['flash']['confirm_password'])) {
+                  print_r($_SESSION['flash']['confirm_password']);
                   }
-                  unset($_SESSION['flash']); ?></code>
+                  unset($_SESSION['flash']); 
+                  ?>
+                </code>
               </div>
             </div>
               <button type="submit" name="btnRegister" class="btn btn-primary btn-user btn-block">Register</button>

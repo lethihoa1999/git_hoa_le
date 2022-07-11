@@ -4,7 +4,6 @@ require 'regcontroller.php';
 if (!isset($_COOKIE["user"]) || empty($_COOKIE["user"])) {
     if (!isset($_SESSION["user"]) || empty($_SESSION["user"])) {
         header("Location: LoginPdo.php");
-
     }
 }
 ?>

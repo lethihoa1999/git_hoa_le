@@ -26,10 +26,14 @@ require 'regcontroller.php';
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" require>
-                            <code><?php if (isset($_SESSION['flash']['login'])) {
-                                print_r($_SESSION['flash']['login']);
+                            <code>
+                                <?php 
+                                if (isset($_SESSION['flash']['login'])) {
+                                    print_r($_SESSION['flash']['login']);
                                 }
-                                unset($_SESSION['flash']); ?></code>
+                                unset($_SESSION['flash']);
+                                ?>
+                            </code>
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-checkbox small">

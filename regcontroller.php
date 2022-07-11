@@ -69,8 +69,8 @@ if (exist_param("btn_login")) {
         }
         if (preg_match($pattern['password'], $password) == 0) {
             $errors['password'] = "Password length from 6 to 100 characters !";
-        } elseif ($password != $RepeatPassword) {
-            $errors['RepeatPassword'] = "Confirmation password is incorrect";
+        } elseif ($password != $confirm_password) {
+            $errors['confirm_password'] = "Confirmation password is incorrect";
         }
         $sql = "SELECT *FROM `users` where `mail`='$mail'";
         $stmt = $conn->prepare($sql);
