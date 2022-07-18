@@ -6,14 +6,14 @@ function exist_param($fieldname)
     return array_key_exists($fieldname, $_REQUEST);
 }
 
-function setFlashSuccess($message)
+function setFlashSuccess($success)
 {
-    $_SESSION['flash'] = $message;
+    $_SESSION['flash'] = $success;
 }
 
-function setFlashError($message)
+function setFlashError($error)
 {
-    $_SESSION['flash'] = $message;
+    $_SESSION['flash'] = $error;
 }
 extract($_REQUEST);
 $errors = array();
@@ -31,9 +31,13 @@ if (exist_param("btn_login")) {
         $users = $stmt->fetch(PDO::FETCH_ASSOC);
         if (preg_match($pattern['mail'], $mail) == 0) {
             $errors['mail'] = "Mail is wrong format !";
+        } else {
+            $_SESSION['mail'] = $mail;
         }
         if (preg_match($pattern['password'], $password) == 0) {
             $errors['password'] = "Password length from 6 to 100 characters !";
+        } else {
+            $_SESSION['password'] = $password;
         }
         if ($users == false) {
             $errors['login'] = "Mail or password is incorrect!";
@@ -53,19 +57,27 @@ if (exist_param("btn_login")) {
             header("Location: LoginPdo.php");
         }
     }
-} elseif (exist_param("btnRegister")) {
+} elseif (exist_param("btnRegister")) {                                                                                    
     if (isset($_POST) & !empty($_POST)) {
         if (preg_match($pattern['name'], $name) == 0) {
             $errors['name'] = "Username length from 6 to 200 characters !";
+        } else {
+            $_SESSION['name'] = $name;
         }
         if (preg_match($pattern['phone'], $phone) == 0) {
             $errors['phone'] = "Phone number length from 10 to 20 characters !";
+        } else {
+            $_SESSION['phone'] = $phone;
         }
         if (preg_match($pattern['mail'], $mail) == 0) {
             $errors['mail'] = "Mail is wrong format !";
+        } else {
+            $_SESSION['mail'] = $mail;
         }
         if (preg_match($pattern['address'], $address) == 0) {
             $errors['address'] = "Address cannot be empty !";
+        } else {
+            $_SESSION['address'] = $address;
         }
         if (preg_match($pattern['password'], $password) == 0) {
             $errors['password'] = "Password length from 6 to 100 characters !";

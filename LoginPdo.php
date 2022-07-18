@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'regcontroller.php';
+require 'RegisterController.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,18 +20,28 @@ require 'regcontroller.php';
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                     </div>
-                    <form class="user" action="regcontroller.php" method="post">
+                    <form class="user" action="RegisterController.php" method="post">
                         <div class="form-group">
-                            <input type="email" name="mail" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" require>
+                            <input type="email" name="mail" class="form-control form-control-user" id="mail" aria-describedby="emailHelp" placeholder="Email"  value="<?php if (isset($_SESSION['mail'])) {echo $_SESSION['mail'];}?>">
                             <code>
                                 <?php 
-                                if (isset($_SESSION['flash']['login'])) {
-                                    print_r($_SESSION['flash']['login']);
+                                if (isset($_SESSION['flash']['mail'])) {
+                                    print_r($_SESSION['flash']['mail']);
                                 }
-                                unset($_SESSION['flash']);
+                                ?>
+                            </code>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Password" value="<?php if (isset($_SESSION['password'])) {echo $_SESSION['password'];}?>">
+                            <code>
+                                <?php 
+                                if (isset($_SESSION['flash']['password'])) {
+                                    print_r($_SESSION['flash']['password']);
+                                } else {
+                                    if (isset($_SESSION['flash']['login'])) {
+                                        print_r($_SESSION['flash']['login']);
+                                    }
+                                }
                                 ?>
                             </code>
                         </div>
@@ -41,6 +51,7 @@ require 'regcontroller.php';
                                 <label class="custom-control-label" for="customCheck">Remember Me</label>
                             </div>
                         </div>
+                        
                         <button name="btn_login" type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                     </form>
                     <hr>
